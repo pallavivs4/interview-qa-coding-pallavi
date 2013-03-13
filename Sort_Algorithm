@@ -1,0 +1,47 @@
+/*
+* Author : PALLAVI V.S
+* Pseudo code for sorting the words in a file in descending order in C/C++ language
+*
+*/
+
+int a_index=0;
+
+while (!eof(input_list.txt))
+{
+  a[a_index]= read_file(input_list.txt);              // read each line/word from input_list.txt and store in array a[]
+  a_index++;
+}
+
+// Now array a[] contains the list of words present in the file input_list.txt
+// Like, a[]={Java, C, Perl, Python, C#}
+
+int b[a[].len];        // Declare another array b[] with the size equal to size of array a[]
+
+int maxlen = 0;         // maxlen is a variable for holding the max length of the string in array a[]
+int b_index = 0;        // Index of array b[]
+int max_index = 0;
+
+do
+  {
+    for (a_index=0; a_index!=a[].len; a_index++)      // Repeat the loop for all the elements in the array, to get the string with max length
+    {
+      if (strlen(a[a_index])>=maxlen)
+      {
+          maxlen = strlen(a[a_index]);
+          max_index = a_index;
+      }
+    }
+
+    b[b_index]=a[max_index];      // Copy the string with maximum lengh into array b[]
+    b_index++;
+    a[max_index]="\0";            // Make the array element with maximum string length in a[] to NULL, so that it should not be considered for finding the next maximum string in a[]
+    maxlen=0;
+
+  } while(b_index!=a[].len);      // Repeat the will loop while array b[] length reaches to lengh of array a[]
+
+
+//  Now that array b[] contains words sorted in descending of their length, write these elements into file input_list.txt by overwriting it
+
+write_file(input_list.txt, b[]);
+          
+
